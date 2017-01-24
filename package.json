@@ -1,6 +1,6 @@
 {
   "name": "apostrophe-styleguide",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Standalone markup and styles for quickly creating a styleguide / pattern library in an Apostrophe CMS project",
   "main": "index.js",
   "scripts": {
