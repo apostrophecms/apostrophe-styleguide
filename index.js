@@ -1,9 +1,24 @@
 module.exports = {
-  extend: 'apostrophe-module',
+  extend: 'apostrophe-custom-pages',
   name: 'styleguide',
   alias: 'styleguide',
-  afterConstruct: function(self) {
 
+  construct: function(self, options) {
+    self.dispatch('/', function(req, callback) {
+      req.template = self.renderer('styleguide');
+      return callback(null);
+    });
+
+    self.apos.pages.park({
+      title: 'Styleguide',
+      type: 'styleguide',
+      slug: '/styleguide',
+      published: true,
+      orphan: true
+    });
+  },
+
+  afterConstruct: function(self) {
     // Vendors first
     self.pushAsset('stylesheet', 'vendor/prism', { when: 'always' });
     self.pushAsset('script', 'vendor/prism', { when: 'always' });
